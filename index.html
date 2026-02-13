@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Selamat Ulang Tahun Devani</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+        height: 100vh;
+        background: linear-gradient(to top, #ffc1d9, #ffe4ef);
+        overflow: hidden;
+        color: #8a004f;
+    }
+
+    /* Gunung Pink */
+    .mountain {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 50%;
+        background: linear-gradient(to top, #ff8fc7, #ffb3da);
+        clip-path: polygon(
+            0 100%, 
+            15% 60%, 
+            30% 80%, 
+            50% 40%, 
+            70% 75%, 
+            85% 55%, 
+            100% 100%
+        );
+        animation: naik 2s ease-out;
+    }
+
+    @keyframes naik {
+        from { transform: translateY(100%); }
+        to { transform: translateY(0); }
+    }
+
+    /* Awan Pink */
+    .cloud {
+        position: absolute;
+        top: 10%;
+        width: 120px;
+        height: 60px;
+        background: #fff0f7;
+        border-radius: 50px;
+        opacity: 0.9;
+        animation: cloudMove 35s linear infinite;
+    }
+
+    .cloud::before,
+    .cloud::after {
+        content: '';
+        position: absolute;
+        background: #fff0f7;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        top: -30px;
+    }
+
+    .cloud::before { left: 15px; }
+    .cloud::after { right: 15px; }
+
+    @keyframes cloudMove {
+        from { left: -150px; }
+        to { left: 110%; }
+    }
+
+    /* Konten */
+    .content {
+        position: absolute;
+        top: 15%;
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+        animation: fadeIn 2.5s ease-in;
+    }
+
+    h1 {
+        font-size: 3em;
+        color: #d81b60;
+        animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+        from { text-shadow: 0 0 8px #ffb3da; }
+        to { text-shadow: 0 0 25px #ff69b4; }
+    }
+
+    p {
+        font-size: 1.2em;
+        margin-top: 15px;
+        line-height: 1.6;
+    }
+
+    .quote {
+        margin-top: 25px;
+        font-style: italic;
+        color: #ad1457;
+        animation: slideUp 3s ease;
+    }
+
+    @keyframes slideUp {
+        from { transform: translateY(30px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    .button {
+        margin-top: 30px;
+        padding: 12px 28px;
+        border: none;
+        border-radius: 30px;
+        background: #ff69b4;
+        color: white;
+        font-size: 1em;
+        cursor: pointer;
+        box-shadow: 0 8px 20px rgba(255,105,180,0.4);
+        transition: 0.3s;
+    }
+
+    .button:hover {
+        background: #ff85c1;
+        transform: scale(1.1);
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="cloud" style="top:8%; animation-duration: 40s;"></div>
+<div class="cloud" style="top:16%; animation-duration: 50s;"></div>
+
+<div class="content">
+    <h1>🎀 Selamat Ulang Tahun Devani 🎀</h1>
+
+    <p>
+        hari ini adalah hari istimewa,  
+        hari di mana dunia terasa lebih manis  
+        karena kamu lahir 💗
+    </p>
+
+    <button class="button" onclick="showMessage()">
+        klik untuk doa & harapan 💕
+    </button>
+
+    <p id="message" class="hidden">
+        semoga di usia yang baru ini,  
+        kamu selalu dikelilingi hal-hal baik,  
+        hati yang lembut namun kuat,  
+        dan mimpi yang perlahan jadi nyata.  
+        <br><br>
+        semoga hidupmu seperti warna pink:  
+        hangat, menenangkan, dan penuh cinta 🌸
+    </p>
+
+    <p class="quote">
+        “bertumbuhlah dengan lembut,  
+        dunia tidak perlu kamu buru-buru.”
+    </p>
+</div>
+
+<div class="mountain"></div>
+
+<script>
+function showMessage() {
+    const msg = document.getElementById("message");
+    msg.classList.remove("hidden");
+    msg.style.animation = "fadeIn 2s ease";
+}
+</script>
+
+</body>
+</html>
